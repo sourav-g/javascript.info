@@ -2,9 +2,10 @@
 
 //To see whether a string is greater than another, JavaScript uses the so-called “dictionary” or “lexicographical” order.
 
-alert("Z" > "A"); // true
-alert("Glow" > "Glee"); // true
-alert("Bee" > "Be"); // true
+console.log("Z" > "A"); // true
+console.log("Z" > "a"); // false
+console.log("Glow" > "Glee"); // true
+console.log("Bee" > "Be"); // true
 
 //!Not a real dictionary, but Unicode order
 //For instance, case matters. A capital letter "A" is not equal to the lowercase "a".
@@ -15,38 +16,38 @@ alert("Bee" > "Be"); // true
 
 //*When comparing values of different types, JavaScript converts the values to numbers.
 
-alert("2" > 1); // true, string '2' becomes a number 2
-alert("01" == 1); // true, string '01' becomes a number 1
-alert(true == 1); // true
-alert(false == 0); // true
+console.log("2" > 1); // true, string '2' becomes a number 2
+console.log("01" == 1); // true, string '01' becomes a number 1
+console.log(true == 1); // true
+console.log(false == 0); // true
 
 //? Strict equality
 
 //A regular equality check == has a problem. It cannot differentiate 0 from false:
 
-alert(0 == false); // true
-alert("" == false); // true
+console.log(0 == false); // true
+console.log("" == false); // true
 
 //*A strict equality operator === checks the equality without type conversion.
 
-alert(0 === false); // false, because the types are different
+console.log(0 === false); // false, because the types are different
 
 //? Comparison with null and undefined
 
-alert(null === undefined); // false
-alert(null == undefined); // true; not converted to numbers (0 & NaN), only in this case
+console.log(null === undefined); // false
+console.log(null == undefined); // true; not converted to numbers (0 & NaN), only in this case
 
 //! An equality check == and comparisons > < >= <= work differently.
 //Comparisons convert null to a number, treating it as 0
 //On the other hand, the equality check == for undefined and null is defined such that, without any conversions, they equal each other and don’t equal anything else.
 
-alert(null > 0); // False; coverted to number
-alert(null == 0); // False; not converted
-alert(null >= 0); // True; converted
+console.log(null > 0); // False; coverted to number
+console.log(null == 0); // False; not converted
+console.log(null >= 0); // True; converted
 
-alert(undefined > 0); // false ; convert to NaN
-alert(undefined < 0); // false ; convert to NaN
-alert(undefined == 0); // false ; undefined only equals null & undefined
+console.log(undefined > 0); // false ; convert to NaN
+console.log(undefined < 0); // false ; convert to NaN
+console.log(undefined == 0); // false ; undefined only equals null & undefined
 
 //! NaN always returns false for any comparisons; even with NaN itself.
 
