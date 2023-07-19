@@ -150,6 +150,7 @@ console.log(parseFloat("12.5em")); // 12.5
 console.log(parseInt("12.3")); // 12, only the integer part is returned
 console.log(parseFloat("12.3.4")); // 12.3, the second point stops the reading
 console.log(parseInt("a123")); // NaN, the first symbol stops the process
+console.log(parseInt("12,345.00")); // 12 :  , stops further processing, SO CANNOT extract a decimal from formatted values
 
 //? parseInt(str, radix) ----------------------------------->
 console.log(parseInt("0xff", 16)); // 255

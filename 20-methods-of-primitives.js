@@ -8,7 +8,7 @@
 /*
     1. Primitives are still primitive. A single value, as desired.
     2. The language allows access to methods and properties of strings, numbers, booleans and symbols.
-    3. In order for that to work, a special “object wrapper” that provides the extra functionality is created, and then is destroyed.
+    3. In order for that to work, a special “object wrapper” that provides the extra functionality is created, and then is destroyed. (AUTO - BOXING)
 */
 
 // Object Wrappers ---> String, Number, Boolean, Symbol and BigInt

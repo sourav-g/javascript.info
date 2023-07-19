@@ -36,6 +36,11 @@ console.log(0 === false); // false, because the types are different
 
 console.log(null === undefined); // false
 console.log(null == undefined); // true; not converted to numbers (0 & NaN), only in this case
+console.log(null === undefined); //false
+console.log(null === null); //true
+console.log(null == null); //true
+console.log(undefined === undefined); //true
+console.log(undefined == undefined); //true
 
 //! An equality check == and comparisons > < >= <= work differently.
 //Comparisons convert null to a number, treating it as 0

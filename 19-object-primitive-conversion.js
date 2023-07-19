@@ -1,4 +1,4 @@
-//! ***********TRICKY TOPIC **********888=>
+//! ***********TRICKY TOPIC **********=>
 
 //  How an object converts to primitive and how to customize it ?
 
@@ -43,15 +43,18 @@
 
 //? To do the conversion, JavaScript tries to find and call three object methods:
 
-/*  ** Conversion Algorithm *****
+/*  ***************** Conversion Algorithm ************************
 
-    -> Call obj[Symbol.toPrimitive](hint) – the method with the symbolic key Symbol.toPrimitive (system symbol), if such method exists,
-    -> Otherwise if hint is "string"
-        try calling obj.toString() or obj.valueOf(), whatever exists.
-    -> Otherwise if hint is "number" or "default"
-        try calling obj.valueOf() or obj.toString(), whatever exists.
+    1) Call obj[Symbol.toPrimitive](hint) 
+           the method with the symbolic key Symbol.toPrimitive (system symbol), if such method exists,
 
-*/
+    2) Otherwise if hint is "string"
+           try calling obj.toString() or obj.valueOf(), whatever exists.
+
+    3) Otherwise if hint is "number" or "default"
+           try calling obj.valueOf() or obj.toString(), whatever exists.
+
+******************************************************************************/
 
 let obj = {};
 obj[Symbol.toPrimitive] = function (hint) {
@@ -72,10 +75,11 @@ let user = {
 };
 
 // conversions demo:
-console.log(user); // hint: string -> {name: "John"}
+alert(user); // hint: string -> {name: "John"}
+console.log(user); // shows as object
 console.log(+user); // hint: number -> 1000
 console.log(user + 500); // hint: default -> 1500
-console.log(user.valueOf() === user); // true
+console.log(user.valueOf() === user); // true ; since `by default` valueOf() returns the obj itself
 
 //? toString/valueOf------------------------------------>
 
@@ -112,7 +116,8 @@ user = {
   },
 };
 
-console.log(user); // toString -> {name: "John"}
+alert(user); // toString -> {name: "John"}
+console.log(user); // shows as object
 console.log(+user); // valueOf -> 1000
 console.log(user + 500); // valueOf -> 1500
 
@@ -127,11 +132,11 @@ If necessary for further calculations, the resulting primitive is also converted
 
 */
 
-let obj = {
+obj = {
   // toString handles all conversions in the absence of other methods
   toString() {
     return "2";
   },
 };
 
-alert(obj * 2); // 4, object converted to primitive "2", then multiplication made it a number
+console.log(obj * 2); // 4, object converted to primitive "2", then multiplication made it a number

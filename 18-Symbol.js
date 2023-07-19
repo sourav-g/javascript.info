@@ -1,3 +1,5 @@
+//? Use Case --->  Symbols are often used to add unique property keys to an object that won't collide with keys any other code might add to the object, and which are hidden from any mechanisms other code will typically use to access the object. That enables a form of weak encapsulation, or a weak form of information hiding
+
 // By spec, only 2 primitives may serve as object prop keys:
 
 //* 1. String
