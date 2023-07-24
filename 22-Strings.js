@@ -145,17 +145,18 @@ console.log(String.fromCodePoint(0x5a)); // Z (we can also use a hex value as an
 
 str = "";
 
-for (let i = 65; i <= 220; i++) {
+for (let i = 40; i <= 125; i++) {
   str += String.fromCodePoint(i);
 }
 console.log(str);
 // Output:
-// ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ¡¢£¤¥¦§¨©ª«¬­®¯° ±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜ
+// ()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}
+// lower ------------------------------------------------------------------------>greater
 
 //! The characters are compared by their numeric code. The greater code means that the character is greater.
 //? <<<-------------------------------------------------------
 
-//********?  Correct comparisons ***********************8
+//********?  Correct comparisons ***********************
 
 //~ The “right” algorithm to do string comparisons is more complex than it may seem, because alphabets are different for different languages. So, the browser needs to know the "language" to compare.
 
@@ -163,8 +164,8 @@ console.log(str);
 
 // * str.localeCompare(str2)
 
-//   -ve; if str < str2
 //   +ve; if str > str2
+//   -ve; if str < str2
 //    0 ; if equivalent
 
 console.log("Österreich".localeCompare("Zealand")); // -1 ; implies "Österreich" < "Zealand" (not comparing by code)
@@ -179,3 +180,5 @@ console.log("Österreich" > "Zealand"); //true;
 
 //! https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
 //! https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator
+//! https://www.tutorialspoint.com/ascii-vs-unicode#:~:text=UNICODE%20is%20a%20superset%20of%20ASCII.&text=ASCII%20supports%20only%20128%20characters,a%20wide%20range%20of%20characters.
+//! ***** https://unicodelookup.com/

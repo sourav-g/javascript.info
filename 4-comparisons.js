@@ -1,5 +1,11 @@
 //? String comparison
 
+//! ()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}
+// A (65)               z(122)
+// lower -------------> greater
+console.log("A".codePointAt(0)); // 65
+console.log("z".codePointAt(0)); // 122
+
 //To see whether a string is greater than another, JavaScript uses the so-called “dictionary” or “lexicographical” order.
 
 console.log("Z" > "A"); // true
