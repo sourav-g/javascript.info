@@ -52,3 +52,7 @@ family = null;
 //1. Generational collection
 //2. Incremental collection
 //3. Idle-time collection
+
+//! Further reading
+//! https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_management
+//! https://betterprogramming.pub/deep-dive-into-garbage-collection-in-javascript-6881610239a

@@ -14,3 +14,8 @@
 //https://blog.bitsrc.io/types-of-native-errors-in-javascript-you-must-know-b8238d40e492
 
 //! pass by value / pass by reference
+
+//? JS Loop comparisons
+
+//https://blog.bitsrc.io/measuring-performance-of-different-javascript-loop-types-c0e9b1d193ed
+//https://manumagalhaes.medium.com/comparing-js-iteration-methods-map-filter-foreach-reduce-loops-f83323663ccb
