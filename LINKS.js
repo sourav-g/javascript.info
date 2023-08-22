@@ -19,3 +19,17 @@
 
 //https://blog.bitsrc.io/measuring-performance-of-different-javascript-loop-types-c0e9b1d193ed
 //https://manumagalhaes.medium.com/comparing-js-iteration-methods-map-filter-foreach-reduce-loops-f83323663ccb
+
+
+//? Object check 
+
+// https://www.geeksforgeeks.org/how-to-check-if-a-value-is-object-like-in-javascript/
+
+// function isActualObject(value){
+//     return Object.prototype.toString.call(value)==='[object Object]';
+// }
+
+//? Recursion is TOUGH
+//? Recursion vs Iteration
+
+// Recursion is a very useful technique in tree-related algorithms. Divide and Conquer strategy also uses recursion. A key advantage of recursion is that it is remembering the past with the help of call stack structure. Thus those sub problems which can be solved using recursive strategy may be overlapped on each other. Therefore some kind of cache can be introduced in order to reduce excessive function calls which leads to the higher time complexity of the specific algorithm. Dynamic Programming(aka DP) is known as this caching mechanism.
