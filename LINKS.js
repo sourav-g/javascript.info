@@ -33,3 +33,5 @@
 //? Recursion vs Iteration
 
 // Recursion is a very useful technique in tree-related algorithms. Divide and Conquer strategy also uses recursion. A key advantage of recursion is that it is remembering the past with the help of call stack structure. Thus those sub problems which can be solved using recursive strategy may be overlapped on each other. Therefore some kind of cache can be introduced in order to reduce excessive function calls which leads to the higher time complexity of the specific algorithm. Dynamic Programming(aka DP) is known as this caching mechanism.
+
+//? Lexical Environment and JS working
