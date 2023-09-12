@@ -42,6 +42,8 @@ function sayHi() {
 
   //! A property assigned to a function like sayHi.counter = 0 does not define a local variable counter inside it. In other words, a property counter and a variable let counter are two unrelated things.We can treat a function as an object, store properties in it, but that has no effect on its execution. Variables are not function properties and vice versa. These are just parallel worlds.
 
+  //! Function properties can replace closures sometimes. BREAKS closures.
+  //! Depends on use-case, what to use
 
   //? -----Named Function Expression-----------
 
@@ -60,7 +62,7 @@ let sayHi = function myName(who) {
     if (who) {
       alert(`Hello, ${who}`);
     } else {
-        myName("Guest"); // use myName to re-call itself
+        myName("Guest"); // use myName to re-call itself, can use sayHi in most cases, unless sayHi is overwritten
     }
   };
 
