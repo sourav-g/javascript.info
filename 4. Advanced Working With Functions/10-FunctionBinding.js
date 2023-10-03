@@ -53,7 +53,7 @@ setTimeout(()=> boundSayHi('Hello'),2000);
 //? Convenient mass binding of all object methods ---------->
 
 let student = {
-    name : 'Tanesha',
+    name : 'Sam',
     roll : 65,
     id   : 'JC2345',
     city : 'Mumbai',
@@ -77,15 +77,44 @@ setTimeout(()=>{
 },3000);
 
 
-student = {
-    name : 'Tanesha',
-    roll : 23,
-    id   : '678',
-    city : 'Guwahati',
-    getAddress(){
-        return this.city;
-    },
-    getEnrollmentID(){
-        return this.id;
+//? Partial function application --------->
+
+//* We can bind not only this, but also arguments.
+
+//  let bound = func.bind(context, [arg1], [arg2], ...);
+
+function muliply(a, b) {
+    return a * b;
+}
+let double = muliply.bind(null,2);
+
+console.log(double(2));  //4
+console.log(double(3));  //6
+console.log(double(4));  //8
+
+//* Partial application is useful when we have a very generic function and want a less universal variant of it for convenience.
+
+//? Partial function application without context ------------------>
+
+// What if we’d like to fix some arguments, but not the context this?
+// native bind does not allow that. Passing context is mandatory
+// Write custom fn to bind only arguments.
+
+user = {
+    firstName : 'Sourav',
+    middleName : 'Kumar',
+    lastName  : 'Ghosh',
+    sayHi(time,message){
+        console.log(`[${time}] ${this.firstName} : ${message} !`);
+    }  
+}
+
+user.sayHiNow = wrapper(user.sayHi, new Date().getHours()+' : '+new Date().getMinutes());
+
+function wrapper(originalFunc,...argsBound){
+    return function(...args){
+        return originalFunc.call(this, ...argsBound, ...args);
     }
 }
+
+user.sayHiNow('Hi, Whats up');
