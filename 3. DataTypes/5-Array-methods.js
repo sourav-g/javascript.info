@@ -9,7 +9,7 @@ arr.unshift(...items) – adds items to the beginning.
 
 */
 //****************************************************************** */
-//*  splice(start[, deleteCount, elem1, ..., elemN])
+//?  splice(start[, deleteCount, elem1, ..., elemN])
 //! [Mutates array]
 //******************************************************************* */
 
@@ -42,7 +42,7 @@ console.log(removedArr); // [ 'home' ]
 console.log(arr); // [ 'Shillong', 'is', 'forever', 'indeed' ]
 
 //*********************************************************** */
-//*  slice([start], [end])   => from start but NOT including end
+//?  slice([start], [end])   => from start but NOT including end
 //! [NEW array]
 //********************************************************** */
 
@@ -58,7 +58,7 @@ copiedArr = arr.slice();
 console.log(copiedArr); // ENTIRE Array copy
 
 //************************************************** */
-//*  concat(arg1, arg2...)  */
+//?  concat(arg1, arg2...)
 //! [NEW array]
 //************************************************** */
 
@@ -96,8 +96,8 @@ console.log(op); //undefined; return ignored
 //? Searching in array ------------------------------------------------------------>
 
 //************************************************** */
-//*  indexOf(item, from)     -> looks for `item` starting from index `from` [left to right]
-//*  lastIndexOf(item, from) -> looks for `item` starting from index `from` [right to left]
+//?  indexOf(item, from)     -> looks for `item` starting from index `from` [left to right]
+//?  lastIndexOf(item, from) -> looks for `item` starting from index `from` [right to left]
 //!  Both uses STRICT equality (===) to find
 //************************************************** */
 
@@ -117,7 +117,7 @@ console.log(arr.lastIndexOf("a", 4)); // 3
 console.log(arr.lastIndexOf("a", -4)); // -1
 
 //************************************************** */
-//*  includes(item, from)    -> looks for `item` starting from index `from` [left to right]
+//?  includes(item, from)    -> looks for `item` starting from index `from` [left to right]
 //!  Uses STRICT equality (===) to find
 //************************************************** */
 
@@ -132,8 +132,8 @@ console.log(arr.indexOf(NaN)); // -1 (wrong, should be 0)
 console.log(arr.includes(NaN)); // true (correct)
 
 //************************************************** */
-//*  find                       -> returns `first` item if found, else undefined
-//*  findIndex / findLastIndex  -> returns index if found, else -1
+//?  find                       -> returns `first` item if found, else undefined
+//?  findIndex / findLastIndex  -> returns index if found, else -1
 //!  useful for array of objects
 //************************************************** */
 
@@ -152,7 +152,7 @@ console.log(users.findIndex((user) => user.name == "John")); // 0
 console.log(users.findLastIndex((user) => user.name == "John")); // 3
 
 //************************************************** */
-//*  filter  -> returns array of matching elements
+//?  filter  -> returns array of matching elements
 //************************************************** */
 
 let results = arr.filter(function (item, index, array) {
@@ -163,7 +163,7 @@ let results = arr.filter(function (item, index, array) {
 //? ****IMPORTANT*******Transform an array -------------------------------------------------->
 
 //************************************************** */
-//*  map   -> returns array by transforming each item
+//?  map   -> returns array by transforming each item
 //! [NEW array] but inside Objects gets mutated (so "always" take a copy)
 //************************************************** */
 
@@ -199,7 +199,7 @@ newFruitsArray = fruits.map((item) => {
 });
 
 //*************************************************************************************************************** */
-//*  sort  -> sorts the array in place, changing its element order.
+//?  sort  -> sorts the array in place, changing its element order.
 //! [Mutates array] (uses Tim Sort, in Chrome)
 
 // READ -> MDN - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
@@ -285,7 +285,7 @@ console.log(characters);
 */
 
 //****************************************************************** */
-//*  reverse  -> sorts the array in place, changing its element order.
+//?  reverse  -> sorts the array in place, changing its element order.
 //! [Mutates array]
 //****************************************************************** */
 
@@ -294,8 +294,8 @@ arr.reverse();
 console.log(arr); // [ 5, 4, 3, 2, 1 ]
 
 //****************************************************************** */
-//*  split(delimiter,length)
-//*  join(glue)
+//?  split(delimiter,length)
+//?  join(glue)
 //! Array NOT Changed
 //****************************************************************** */
 
@@ -307,8 +307,8 @@ names = arr.join(" | ");
 console.log(names); // Bilbo | Gandalf
 
 //****************************************************************** */
-//*  reduce       -> Collection to a single value [ left to right ]
-//*  reduceRight  -> [ right to left ]
+//?  reduce       -> Collection to a single value [ left to right ]
+//?  reduceRight  -> [ right to left ]
 //! Array NOT Changed
 //****************************************************************** */
 
@@ -329,7 +329,7 @@ result = arr.reduce((sum, current) => {
 }, 0); //! No initial value, takes first arr element as initial value (if exists), else TypeError
 console.log(result); // 15
 
-//********? Array.isArray**********************888
+//********? Array.isArray**********************
 
 console.log(typeof {}); // object
 console.log(typeof []); // object (same)
