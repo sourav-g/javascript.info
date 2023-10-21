@@ -11,8 +11,8 @@
 //*"that wont work if configurable is FALSE initially";
 //* Making a property non-configurable is a one-way road. We cannot change it back with defineProperty.
 
-//* By default, all are TRUE, when a property is created using OBJECT literal
-//* By default, all are FALSE, when a property is created using OBJECT.defineProperty
+//! By default, all are TRUE, when a property is created using OBJECT literal
+//! By default, all are FALSE, when a property is created using OBJECT.defineProperty
 
 let obj = {
   name: "Sourav",
@@ -129,6 +129,8 @@ let clonedObject = Object.defineProperties(
 
 // for..in ignores symbolic and non-enumerable properties
 // Object.getOwnPropertyDescriptors returns all prop descriptors, including symbolic and non-enumerable
+//! Object.assign and for..in are not same for cloning.
+//! for..in ignores symbolic properties but Object.assign also copies symbols
 
 //? Sealing an object globally  -------------------------->
 
