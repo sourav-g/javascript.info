@@ -31,8 +31,9 @@ let user = {
   [Symbol("againId")]: 3,
 };
 user[anotherId] = 2;
-console.log(user[newId]);
-console.log(user[anotherId]);
+console.log(user[newId]);      //1
+console.log(user[anotherId]);  //2
+console.log(user[Symbol("againId")]);  //undefined
 
 //? What’s the benefit of using Symbol("id") over a string "id"? -------------->
 

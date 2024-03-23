@@ -1,6 +1,6 @@
 //? Losing “this” -------------->
 
-//* Once a method is passed somewhere separately from the object – this is lost.
+//* Once a method is passed somewhere separately from the object – `this` is lost.
 
 let user = {
     name : 'Sourav',
@@ -109,10 +109,14 @@ user = {
     }  
 }
 
+console.log('this 0',this);   //! Window
+
 user.sayHiNow = wrapper(user.sayHi, new Date().getHours()+' : '+new Date().getMinutes());
 
 function wrapper(originalFunc,...argsBound){
+    console.log('this 1',this);   //! Window
     return function(...args){
+        console.log('this 2',this);   //! User [in this example]
         return originalFunc.call(this, ...argsBound, ...args);
     }
 }
