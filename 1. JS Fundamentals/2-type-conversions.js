@@ -24,7 +24,7 @@ string	     :    The string is read “as is”, whitespaces (includes spaces, t
 Value	                         Becomes…
 ------------------------------------------
 0, null, undefined, NaN, ""	:    false
-any other value	            :    true
+"0"," " & any other value	            :    true
 
 */
 

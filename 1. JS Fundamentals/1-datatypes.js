@@ -1,6 +1,6 @@
 //* 8 basic data types
 
-//* number, BigInt, string, boolean, null, undefined, objects, symbols
+//* string, number, boolean, objects, BigInt, symbols, null, undefined.
 
 //? number
 //-> both integer and floating point numbers. Besides regular numbers, there are so-called “special numeric values” which also belong to this data type: Infinity, -Infinity and NaN.

@@ -1,12 +1,10 @@
-// The "prototype" property is widely used by the core of JavaScript itself. 
+// The "prototype" property is widely used by the core of JavaScript itself.
 // All built-in constructor functions use it.
-
 
 //? Object.prototype -----------------------------------------------------------
 
-//* obj = {} is the same as obj = new Object(), 
+//* obj = {} is the same as obj = new Object(),
 //* where Object is a built-in object constructor function, with its own prototype referencing a huge object with toString and other methods.
-
 
 /*
 
@@ -22,18 +20,15 @@
                              obj = new Object()
                              obj = {}   
 
-*/                                
-
+*/
 
 let obj = {};
-console.log( obj.__proto__ === Object.prototype );                    //true
-console.log( obj.toString === obj.__proto__.toString  );              //true  
-console.log( obj.toString === Object.prototype.toString  );           //true  
-console.log( Object.prototype.toString === obj.__proto__.toString );  //true
-
+console.log(obj.__proto__ === Object.prototype); //true
+console.log(obj.toString === obj.__proto__.toString); //true
+console.log(obj.toString === Object.prototype.toString); //true
+console.log(Object.prototype.toString === obj.__proto__.toString); //true
 
 //?  Other built-in prototypes --------------------------------------------------
-
 
 /*
 *                                                  NULL                                  
@@ -62,17 +57,13 @@ console.log( Object.prototype.toString === obj.__proto__.toString );  //true
 *
 */
 
-
- 
 //? Primitives ----------------------------------------------------------------
-
 
 //* As we remember, they are not objects. But if we try to access their properties, temporary wrapper objects are created using built-in constructors String, Number and Boolean. They provide the methods and disappear.
 
-
 //? Changing native prototypes ------------------------------------------------
 
-String.prototype.show = function() {
+String.prototype.show = function () {
   console.log(this);
 };
 
@@ -86,27 +77,26 @@ String.prototype.show = function() {
 
 //! **************************************************************
 
-
 //* In modern programming, there is only one case where modifying native prototypes is approved. That’s polyfilling.
 
 //* Polyfilling is a term for making a substitute for a method that exists in the JavaScript specification, but is not yet supported by a particular JavaScript engine.
 
 // We may then implement it manually and populate the built-in prototype with it.
- 
+
 //if (!String.prototype.repeat) { // if there's no such method
-  // add it to the prototype
+// add it to the prototype
 
-  String.prototype.repeat = function(n) {
-    // repeat the string n times
+String.prototype.repeat = function (n) {
+  // repeat the string n times
 
-    // actually, the code should be a little bit more complex than that
-    // (the full algorithm is in the specification)
-    // but even an imperfect polyfill is often considered good enough
-    return new Array(n+1).join(this);
-  };
+  // actually, the code should be a little bit more complex than that
+  // (the full algorithm is in the specification)
+  // but even an imperfect polyfill is often considered good enough
+  return new Array(n + 1).join(this);
+};
 //}
 
-console.log( "La".repeat(3) ); // LaLaLa
+console.log("La".repeat(3)); // LaLaLa
 
 //? Borrowing from prototypes -------------------------------------------------
 
@@ -114,15 +104,14 @@ console.log( "La".repeat(3) ); // LaLaLa
 // For instance, if we’re making an array-like object, we may want to copy some Array methods to it.
 
 let name = {
-      0: "Sourav",
-      1: "Ghosh",
-      length: 2
-}
+  0: "Sourav",
+  1: "Ghosh",
+  length: 2,
+};
 name.join = Array.prototype.join;
-console.log(name.join(' & '));
+console.log(name.join(" & "));
 
 //! It works because the internal algorithm of the built-in join method only cares about the correct indexes and the length property. It doesn’t check if the object is indeed an array.
-
 
 console.log(name.__proto__ === Object.prototype); //true
 

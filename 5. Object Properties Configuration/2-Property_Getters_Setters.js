@@ -15,16 +15,15 @@ let user = {
     [this.name, this.surName] = value.split(" ");
   },
 };
-console.log(user.fullName);       // Sourav Ghosh
+console.log(user.fullName); // Sourav Ghosh
 user.fullName = "Vickey Ghosh";
-console.log(user.fullName);       // Vickey Ghosh
-console.log(user.name);           // Vickey
+console.log(user.fullName); // Vickey Ghosh
+console.log(user.name); // Vickey
 
 //* We have a “virtual” property fullName. It is readable and writable.
 //* Here, data properties   - name & surName
 //*       accessor property - fullName
 //! A property can be either, and NOT both
-
 
 //? Accessor descriptors------------------------------
 
@@ -33,41 +32,40 @@ console.log(user.name);           // Vickey
 
 user = {
   name: "John",
-  surname: "Smith"
+  surname: "Smith",
 };
 
-Object.defineProperty(user, 'fullName', {
+Object.defineProperty(user, "fullName", {
   get() {
     return `${this.name} ${this.surname}`;
   },
   set(value) {
     [this.name, this.surname] = value.split(" ");
   },
-  enumerable:true
+  enumerable: true,
 });
 
-for(let key in user) console.log(key);
-
+for (let key in user) console.log(key);
 
 //? Smarter getters/setters ---------------------------
 
 //* Getters/setters can be used as wrappers over “real” property values to gain more control over operations with them.
 
 user = {
-  get name(){
+  get name() {
     return this._name;
   },
-  set name(value){
-    if(value.length < 5){
+  set name(value) {
+    if (value.length < 5) {
       console.log("Too short name Not allowed");
       return;
     }
     this._name = value;
-  }
-}
-user.name = 'Tina';
+  },
+};
+user.name = "Tina";
 console.log(user.name); // undefined
-user.name = 'Sourav';
+user.name = "Sourav";
 console.log(user.name); // Sourav
 
 //? Using for compatibility ----------------------------
@@ -79,7 +77,7 @@ function User(name, age) {
   this.age = age;
 }
 let john = new User("John", 25);
-alert( john.age ); // 25
+alert(john.age); // 25
 
 //! What if we want to store birthday now and Not age ?
 //* ANS : Store birthday and make 'age' an accessor property. This way, old code which uses age still works
@@ -93,6 +91,6 @@ function User(name, birthday) {
     get() {
       let todayYear = new Date().getFullYear();
       return todayYear - this.birthday.getFullYear();
-    }
+    },
   });
 }
